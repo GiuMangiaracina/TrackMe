@@ -10,33 +10,33 @@ The user can manage his requests, and decide to accept or deny them. If the requ
     \begin{tabular}{|p{3.5cm}|p{10.3cm}|}
     
     \hline
-    \textbf{\large{Actors}}  			& \tabitem Third part;\tabitem  User  									\\
+    \textbf{\large{Actors}}  			& \tabitem Third party;\tabitem  User  									\\
     				 			
     \hline
     \textbf{\large{Goals}} 				&\ref{goal:user1}; \ref{goal:parties1};\ref{goal:parties2};\ref{goal:parties3}\\
     
     \hline
-    \textbf{\large{Enter Condition}} & The third part should be logged in the Data4Help System	\\
+    \textbf{\large{Enter Condition}} & The third party should be logged in the Data4Help System	\\
     
     \hline
     \textbf{\large{Events Flow}}		& \begin{enumerate}[leftmargin=0.5cm]
-                                          	\item The \emph{Third part}  presses the " Request data  from a user" button
-                                            \item The \emph{Third part} inserts the specific fiscal code of the target user
-                                            \item The \emph{Third part} specifies the parameters that want to receive
+                                          	\item The \emph{Third party}  presses the " Request data  from a user" button
+                                            \item The \emph{Third party} inserts the specific fiscal code of the target user
+                                            \item The \emph{Third party} specifies the parameters that want to receive
                                             
-                                            \item The \emph{Third part} can select the subscription mode. If 
-                            it is chosen, the third part inserts the interval time. 
+                                            \item The \emph{Third party} can select the subscription mode. If 
+                            it is chosen, the third party inserts the interval time. 
                             
                             \item The \emph{System} sends an authorization request to the target user with all the related informations
                                             
                                             \item  The  \emph{user} read the request and accepts it
-                                            \item The \emph{System} retrieves the data requested and send them as soon as available to the third part. If the third part has performed a subscription request, it keeps on to send the updated data to the third part how often it has requested.
-                                            \item The requested data are shown to the third part
+                                            \item The \emph{System} retrieves the data requested and sends them as soon as available to the third party. If the third party has performed a subscription request, it keeps on to send the updated data to the third party how often it has requested.
+                                            \item The requested data are shown to the third party
                                 
                                           \end{enumerate}
     										\\
     \hline
-    \textbf{\large{Exit Condition}} 	& The third part can examine the requested data. \\
+    \textbf{\large{Exit Condition}} 	& The third party can examine the requested data. \\
     
     \hline
     \textbf{\large{Exception}} 			& -The \emph{target user} denies the request: the negative response is communicated to the third party\newline -The selected fiscal code does not correspond to a registered user:the System asks to insert a validate one.\\
