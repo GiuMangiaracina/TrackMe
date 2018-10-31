@@ -3,9 +3,45 @@ Domain Assumptions:
 \begin{enumerate}[label={[}D.\arabic*{]}]
 
 \item \label{d:1}
-The user's device collect the data through sensors
-
+The user owns a smartwatch or similiar device, connected to the user’s smartphone
+\item\label{d:2}
+The smartwatch collects the data through its sensors
+\itm\label{d:3}
+The device has regular Internet connection 
+\item\label{d:4}
+The device has a GPS system always turn on
+\item\label{d:4}
+The Gps position has an accurance less than 15 mt
+\item\label{d:5}
+An external map service will be used
+\item\label{d:6}
+The map service is reliable
+\item\label{d:7}
+Only registered user, either as third part or clients, can be use the application
+\item\label{d:8}
+At registration time, the user provides correct data: fiscal code, first name, last name, age, city, height and weight
+\item\label{d:9}
+The device’s sensors send new data every 2 seconds
+\item\label{d:10}
+After the start of an emergency, an ambulance will be dispatched at the user’s location as soon as possible
+\item\label{d:11}
+For every urgent call,details about the emergency are correctly encoded
+\item\label{d:12}
+The threshold value for detect and emergency state will be provided by a trusted medical authority
+\item\label{d:13}
+The database of emergency world number is updated and reliable
+\item\label{d:14}
+The map service provides only feasible paths accessible by foot
 \end{enumerate}
 
+\textbf{Constraints:}
+
+\begin{enumerate}
+    \item\label{c:1}	A group request can be executed only if there are at least 1000 people that match the requested characteristics 
+    \item\label{c:2}
+    From the time the parameters are below a fixed threshold, the communication with SSN must be established within 5 seconds
+    \item\label{c:3}
+    The subscription to a run is closed if the maximum number of partecipants is reached
+\end{enumerate}
 
 
