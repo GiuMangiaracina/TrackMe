@@ -1,9 +1,5 @@
-  \subsection{Login System}
-Every user who wants to use the application must be registered to the System.
+  \subsection{Emergency}
 
-
-
-After that, the user has to log in into the System in order to be recognized and use the application.
 
 \begin{table}[H]
 	\centering
@@ -11,9 +7,8 @@ After that, the user has to log in into the System in order to be recognized and
     \begin{tabular}{|p{3.5cm}|p{10.3cm}|}
     
     \hline
-    \textbf{\large{Actors}}  			& \tabitem Visitor 									\\
-    				 					& \tabitem Registered User							\\
-                     					& \tabitem Logged-In User 							\\
+    \textbf{\large{Actors}}  			& User 									\\
+    				 					
     \hline
     \textbf{\large{Goals}} 				& \ref{goal:user0};\ref{goal:user00}\\
     
@@ -36,7 +31,7 @@ After that, the user has to log in into the System in order to be recognized and
     
     \hline
     \textbf{\large{Exception}} 			& The \emph{Visitor} cannot register himself because is already registered.\newline The \emph{Registered} user                                         is not able to sign in the System because the login data are wrong or if he did not confirmed  the confirmation email. \newline
-    										If one of these problems occur, the system both on the web site and on the application shows a message error to the user, which is invited to re-insert their credentials or confirm the registration email.\\
+    								
     
     \hline
     
@@ -49,4 +44,3 @@ After that, the user has to log in into the System in order to be recognized and
     \includegraphics[scale=0.4]{rasdL/Pictures/login1.png}
     
 \end{figure}
-
