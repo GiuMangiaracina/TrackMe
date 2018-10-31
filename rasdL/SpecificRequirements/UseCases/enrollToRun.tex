@@ -1,5 +1,5 @@
   \subsection{Enroll to a scheduled run}
-After visualizing the list of scheduled runs and choosing one of them, if there are available entries, a Registered user can enroll to the chosen run. 
+After visualizing the list of scheduled runs and choosing one of them, if there are available entries, a User can enroll to the chosen run. 
 
 \begin{table}[H]
 	\centering
@@ -7,28 +7,30 @@ After visualizing the list of scheduled runs and choosing one of them, if there 
     \begin{tabular}{|p{3.5cm}|p{10.3cm}|}
     
     \hline
-    \textbf{\large{Actors}}  			& \tabitem Registered User 	\\
+    \textbf{\large{Actors}}  			& \tabitem User 	\\
     				 					
     \hline
     \textbf{\large{Goals}} 				& \ref{goal:run2};\\
     
     \hline
-    \textbf{\large{Enter Condition}}	& The \emph{Registered User} has already specified the characteristics of the run that wants to be shown.		\\
+    \textbf{\large{Enter Condition}}	& The \emph{User} has already specified the characteristics of the run that wants to be shown.		\\
     
     \hline
     \textbf{\large{Events Flow}}		& \begin{enumerate}[leftmargin=0.5cm]
-                                          	\item The \emph{Registered user} chooses a run from the list of scheduled runs 
+                                          	\item The \emph{User} chooses a run from the list of scheduled runs 
                                           	 \item The System shows the details relative to the chosen run
-                                            \item The \emph{Registered user} enroll to the chosen run
-                                            \item If there are available entries, the System adds the \emph{Registered user} to the list of partecipants of the run
-                                          \end{enumerate}
+                                            \item The \emph{User} enroll to the chosen run
+                                            \item If there are available entries, the System adds the \emph{User} to the list of partecipants of the run
+                                             \item The System sends an email with all the informations about the run, the ticket's code and the bib number
+                                              \item The System notifies the \emph{User} through email updates in case of scheduling changes before the day of the run
+                                             \end{enumerate}
     										\\
     \hline
-    \textbf{\large{Exit Conditions}}    & The Registered user is enrolled to the run and added to the list of partecipants of the chosen run.  \\
+    \textbf{\large{Exit Conditions}}    & The User is enrolled to the run and added to the list of partecipants of the chosen run.  \\
     
     \hline
     \textbf{\large{Exceptions}} 		& \begin{enumerate}[leftmargin=0.5cm]
-                                          	\item The \emph{Registered user} tried to enroll to a run that has no more available entries.
+                                          	\item The \emph{User} tried to enroll to a run that has no more available entries.
                                           \end{enumerate}
     										If this problem occurs, the system shows an error message to the user, which is invited to choose another run.\\
     
