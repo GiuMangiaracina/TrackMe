@@ -1,4 +1,4 @@
- \subsection{Request of selected data of a specific user with subscription, and data visualization}
+ \subsection{Request of selected data of a specific user with subscription and data visualization}
  
 The third part can exploit the Data4Help System, sending a request for the selected data (health data and location) of a specific user, either the last available data, or in subscription mode.  
  In the latter case  it inserts the interval time, i.e. how often wants to receive the updates of these data.
@@ -16,22 +16,22 @@ The user can manage his requests, and decide to accept or deny them. If the requ
     \textbf{\large{Goals}} 				&\ref{goal:user1}; \ref{goal:parties1};\ref{goal:parties2};\ref{goal:parties3}\\
     
     \hline
-    \textbf{\large{Enter Condition}} & The third party should be logged in the Data4Help System	\\
+    \textbf{\large{Enter Condition}} & The third party should be logged in	\\
     
     \hline
     \textbf{\large{Events Flow}}		& \begin{enumerate}[leftmargin=0.5cm]
                                           	\item The \emph{Third party}  presses the " New Request" button
                                             \item The \emph{Third party} inserts the specific fiscal code of the target user
-                                            \item The \emph{Third party} specifies the parameters that want to receive
+                                            \item The \emph{Third party} specifies the data that want to receive
                                             
-                                            \item The \emph{Third party} can select the subscription mode. If 
-                            it is chosen, the third party inserts the interval time. 
+                                            \item The \emph{Third Party} can select the subscription mode. If 
+                            it is chosen, the third party should also specify the interval time for receiving updates. 
                             
                             \item The \emph{System} sends an authorization request to the target user with all the related informations
                                             
-                                            \item  The  \emph{user} read the request and accepts it
-                                            \item The \emph{System} retrieves the data requested and sends them as soon as available to the third party. If the third party has performed a subscription request, it keeps on to send the updated data to the third party how often it has requested.
-                                            \item The requested data are shown to the third party
+                                            \item  The  \emph{User} receives the request and can decide to accept or deny it
+                                            \item If the request is accepted, the \emph{System} retrieves the requested data. (If the third party has performed a subscription request, the System sends the updates to the third party how often it has requested)
+                                            \item The requested data are shown to the \emph{Third Party}
                                 
                                           \end{enumerate}
     										\\
