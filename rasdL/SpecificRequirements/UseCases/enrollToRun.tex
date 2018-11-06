@@ -7,22 +7,22 @@ After visualizing the list of scheduled runs, the User can choose one of them an
     \begin{tabular}{|p{3.5cm}|p{10.3cm}|}
     
     \hline
-    \textbf{\large{Actors}}  			& \tabitem User 	\\
+    \textbf{\large{Actors}}  			& \tabitem User\\
     				 					
     \hline
-    \textbf{\large{Goals}} 				& \ref{goal:run2};\\
+    \textbf{\large{Goals}} 				& \ref{goal:run2}\\
     
     \hline
-    \textbf{\large{Enter Condition}}	& The \emph{User} has already specified the characteristics of the run that wants to be shown.		\\
+    \textbf{\large{Enter Condition}}	& The \emph{User} has already visualize the list of scheduled runs.\\
     
     \hline
     \textbf{\large{Events Flow}}		& \begin{enumerate}[leftmargin=0.5cm]
-                                          	\item The \emph{User} chooses a run from the list of scheduled runs 
-                                          	 \item The System shows the details relative to the chosen run
-                                            \item The \emph{User} enroll to the chosen run
-                                            \item If there are available entries, the System adds the \emph{User} to the list of partecipants of the run
-                                             \item The System sends an email with all the informations about the run, the ticket's code and the bib number
-                                              \item The System notifies the \emph{User} through email updates in case of scheduling changes before the day of the run
+                                          	\item The \emph{User} chooses a run from the list of scheduled runs. 
+                                          	 \item The System shows the details relative to the chosen run.
+                                            \item The \emph{User} enrolls to the chosen run selecting the "Enroll" button.
+                                            \item If there are available entries, the System adds the \emph{User} to the list of partecipants of the run.
+                                             \item The System sends an email with all the informations about the run, the ticket's code and the bib number to the User's email address.
+                                              \item The System notifies the \emph{User} through email updates in case of scheduling changes before the day of the run.
                                              \end{enumerate}
     										\\
     \hline
@@ -36,7 +36,6 @@ After visualizing the list of scheduled runs, the User can choose one of them an
     
     \hline
     
-    
     \end{tabular}
 	
 \end{table}
@@ -44,5 +43,5 @@ After visualizing the list of scheduled runs, the User can choose one of them an
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{Pictures/enrollSeqDiag.png}
-    \caption{State chart  \emph{Data4Help} System}
+    \caption{Sequence diagram for the enrollment of a user to a scheduled run}
 \end{figure}
