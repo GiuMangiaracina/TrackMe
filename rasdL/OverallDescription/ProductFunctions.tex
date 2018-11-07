@@ -10,75 +10,75 @@ R2)The third party have to specify its personal data at registration time: compa
 
 
 \textbf{Data4Help:} \\
-\textbf{G1)Allow a registered user to manage the accesses to its personal data} \\ \\
+\textbf{G3.1)Allow a registered user to manage the accesses to its personal data} \\ \\
 R1)The user receives in real time requests on its data from the third parties \\ \\
 R2)The Request can be accepted or denied by the user\\ \\
 R3)The user can see the specific type of data requested from the third part \\ \\ 
-\textbf{ G2)Allow a registered user to visualize its actual health parameters and position} \\ \\
+\textbf{ G3.2)Allow a registered user to visualize its actual health parameters and position} \\ \\
 R1)The user must be able to see its position on an interactive map \\ \\
-R2)The position must be update in real time (around 5 seconds) ?? \\ \\
+R2)The position must be update in real time \\ \\
 R3)The system provides the latest health and location data available \\ \\
-\textbf{G3)Allow a registered user to visualize its past data History} \\ \\
+\textbf{G3.3)Allow a registered user to visualize its past data History} \\ \\
 R1)the system asks the user what kind of data he\she wants to see \\ \\
 R2)The data are presented in the order specified by the user  \\ \\
 R2.1)The system provides two grouping options: time and location \\ \\
 R3)A manual research on its own data history can be performed by the user \\ \\
 R3.1)The user can customize its search specifying the time or location range \\ \\ 
-\textbf{G4)Allow the third parties to request the access to the data of a registered user} \\ \\
+\textbf{G3.4)Allow the third parties to request the access to the data of a registered user} \\ \\
 R1)the system asks to insert the fiscal code of the specific user \\ \\
 R2) the third party is asked to specify the type of data to be requested\\ \\ 
-R3)The system notify the user about the request 
+R3)The system notify the user about the request\\ \\
 R4)The system notify the third party as soon as the response is available \\ \\
-\textbf{G4.1)Allow the third party to request only the latest data of a registered user} \\ \\
-R4)if the request is accepted by the user, the system will provide the third party with its latest available data \\ \\ 
-\textbf{G4.2)Allow a third party to request a subscription to the data of the registered users} \\ \\
-R5)the third party can define the interval between updates for each specific parameter \\ \\
-R6) If the request is accepted by the user, the system will provide the third party with periodic updates \\ \\ \\
-\textbf{G5)Allow a third party to request anonymazed data of a set of users} \\ \\
+\textbf{G3.4.1)Allow the third party to request only the latest data of a registered user} \\ \\
+R5.1)if the request is accepted by the user, the system will provide the third party with its latest available data \\ \\ 
+\textbf{G3.4.2)Allow a third party to request a subscription to the data of the registered users} \\ \\
+R5.2)the third party can define the interval between updates for each specific parameter \\ \\
+R5.3) If the request is accepted by the user, the system will provide the third party with periodic updates \\ \\ \\
+\textbf{G3.5)Allow a third party to request anonymized data of a set of users} \\ \\
 R1) The third party is asked to specify the type of data to be requested \\ \\
  R2)The data requested will be chosen among those that match the preferences specified by the third party: age range, geographical area, localization, gender, weight, height \\ \\
 R3)The requested is allowed only if the number of users that match the preferences is more then 1000 \\ \\
 R4)The data are anonymized to prevent the possibility of a misuse of data \\ \\ 
-\textbf{G5.1)Allow the third party to request only the latest data of the set of user} \\ \\
+\textbf{G3.5.1)Allow the third party to request only the latest data of the set of user} \\ \\
 R5.1)If the request is allowed, the system will provide the third party with its latest available data on group \\ \\
-\textbf{G5.2) Allow a third party to request a subscription to the data of the set of user} \\ \\
-R5.2.1)the third party can define the interval between updates for each specific parameter \\ \\
-R5.2.2) If the request is allowed, the system will provide the third party with periodic updates on the group \\ \\ 
-\textbf{G6) Allow a third party to visualize the available data through useful statistics} \\ \\
+\textbf{G3.5.2) Allow a third party to request a subscription to the data of the set of user} \\ \\
+R5.2)the third party can define the interval between updates for each specific parameter \\ \\
+R5.3) If the request is allowed, the system will provide the third party with periodic updates on the group \\ \\ 
+\textbf{G3.6) Allow a third party to visualize the available data through useful statistics} \\ \\
 R1)The system provides the third party with different graphical representations of the available data \\ \\
 
 \textbf{AutomatedSos:} \\ \\ 
-\textbf{G1) NHS is alerted when the user gets in a critical state} \\ \\
+\textbf{G4.1) NHS is alerted when the user gets in a critical state} \\ \\
 R1)The system continuosly keep track of the vital parameters of the user \\ \\
 R2) The system Communicate to NHS the health status of individual when parameters are below certain thresholds \\ \\
 R3) The system retrieves from its database the right emergency number for the geographical area based on the user’s location \\ \\
 R4) The system calls the emergency number, communicates the vital parameters and the actual location of the user, and asks the dispatch of an ambulance \\ \\
-\textbf{G2)Allow the user to create a list of contacts to be alerted  in case of emergency} \\ \\
+\textbf{G4.2)Allow the user to create a list of contacts to be alerted  in case of emergency} \\ \\
 R1) The system sends a message to all the numbers on the specified list in case of emergency \\ \\
 R2) The user can customize the  text message to be sent \\ \\
 R3) If there is not a customize text message, the system will send a default message \\ \\
 
 \textbf{Track4Run:}\\ \\
-\textbf{G1) Organizers can create a new run} \\ \\
+\textbf{G5.1) Organizers can create a new run} \\ \\
 R1) The system asks the organizer to select a starting and finishing point for the run \\ \\
 R2) The organizer can add intermediate points that will be part of the path \\ \\
 R3) The system relies on an external service to provide the interaction with a map \\ \\
 R4) The system calculates the shortest path that includes all the points selected by the organizer \\ \\   
-R5) The system asks the organizer to specify the maximum number of partecipants \\ \\
+R5) The system asks the organizer to specify the maximum number of participants \\ \\
 R6) After being created, the run is added to the list of the scheduled runs \\ \\
-\textbf{G2) Registered users can visualize the List of planned runs} \\ \\
+\textbf{G5.2) Registered users can visualize the List of planned runs} \\ \\
 R1) The system shows only future runs \\ \\ 
 R2) A manual search can be performed by the user specifying the location range and the minimum/maximum distance \\ \\ 
 R3) The system provides the list of runs ordered by time and user’s location \\ \\
 R4) The system provides a list of live runs \\ \\
-\textbf{G3) Registered users can enroll to a run as participants} \\ \\
+\textbf{G5.3) Registered users can enroll to a run as participants} \\ \\
 R1) The system allow to enroll to a run if there are available entries \\ \\
 R2)The system sends an email to the user’s email address with the information related to the run and the ticket (bib number) \\ \\
 R3) The user is notified through email updates if there are changes until the day of the run \\ \\
-\textbf{G4) Registered users can visualize the list of live runs} \\ \\
+\textbf{G5.4) Registered users can visualize the list of live runs} \\ \\
 R1) The list of live runs shows only the list of runs that are taking place in that moment \\ \\
 R2) The user can decide to follow a live run from the list, directly from their device \\ \\
-\textbf{G5) Registered users can visualize on a map the positions of the participants in a live run} \\ \\	
+\textbf{G5.5) Registered users can visualize on a map the positions of the participants in a live run} \\ \\	
 R1) The positions on the map are updated in real time \\ \\
 R2) The system shows the number of online visitors \\
 
