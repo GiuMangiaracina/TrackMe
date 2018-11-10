@@ -2,12 +2,12 @@
 The purpose of this document is to provide a complete description of the TrackMe System, through the analysis of the problems, the listing and presentation of the goals, constraints, phenomena, domain assumptions and models with the aim of provide to the stakeholders a complete overview of the project. TrackMe provides three main services: Data4Help, AutomatedSOS and Track4run.
 
 \begin{goalList}
+
 \begin{enumerate}[label={[}G\arabic*{]}]
 
     \item \label{goal:trackme1} The Registered User can access to the services offered by TrackMe System with a single account.
     
-    
-    \item \label{goal:trackme2}The user can be recognized by providing his/her username and password.
+    \item \label{goal:trackme2}The Registered User can be recognized by providing his/her username and password.
     
     
 \end{enumerate}
@@ -15,18 +15,25 @@ The purpose of this document is to provide a complete description of the TrackMe
 \textbf{Goals of Data4Help:}
 \begin{enumerate}[label={[}G3.\arabic*{]}]
 
-    \item \label{goal:user1}Allow a registered user to manage the accesses to his/her personal data.
-    \item \label{goal:user2}Allow a registered user to visualize the actual health parameters and position.
-    \item \label{goal:user3}Allow a registered user to visualize his/her past data history.
+    \item \label{goal:user1}Allow a User to manage the accesses to his/her personal data.
+    \item \label{goal:user2}Allow a User to visualize his/her actual health parameters and position.
+    \item \label{goal:user3}Allow a User to visualize his/her past data history.
 
-    \item \label{goal:parties1}Allow a third party to send an authorization request to an user for the access to his/her data.
-    \item \label{goal:parties2}Allow a third party to  request the latest data available  of a registered user.
+    \item \label{goal:parties1}Allow a Third Party to send an authorization request to a User for the access to his/her data.
+    
+    \begin{enumerate}[label={[}G3.4.\arabic*{]}]
+        \item \label{goal:parties2}Allow a Third Party to  request the latest available data of a User.
+        \item \label{goal:parties3}Allow a Third Party to request a subscription to the data of a Users.
+    \end{enumerate}
 
-    \item \label{goal:parties3}Allow a third party to request a subscription to the data of the registered users.
-
-    \item \label{goal:parties4}Allow a third party to request anonymized data of a set of users.
-
-    \item \label{goal:parties5}Allow a third party to visualize the available data through useful statistics.
+    \item \label{goal:parties4}Allow a Third Party to request anonymized data of a set of Users.
+    
+     \begin{enumerate}[label={[}G3.5.\arabic*{]}]
+        \item \label{goal:parties5}Allow a Third Party to request the latest available data of the set of Users.
+        \item \label{goal:parties6}Allow a Third Party to request a subscription to the data of the set of Users.
+    \end{enumerate}
+    
+    \item \label{goal:parties7}Allow a Third Party to visualize the available data through useful statistics.
     \newline
     
 \end{enumerate}
@@ -34,8 +41,8 @@ The purpose of this document is to provide a complete description of the TrackMe
 \textbf{Goals of AutomatedSOS}:
 \begin{enumerate}[label={[}G4.\arabic*{]}]
 
-\item \label{goal:sos1}NHS is alerted when the user gets in a critical state.
-\item \label{goal:sos2}Allow the user to create a list of contacts to be alerted in case of emergency.
+\item \label{goal:sos1}NHS is alerted when the User gets in a critical state.
+\item \label{goal:sos2}Allow the User to create a list of contacts to be alerted in case of emergency.
     
 \end{enumerate}
 \newpage
@@ -44,10 +51,11 @@ The purpose of this document is to provide a complete description of the TrackMe
 \begin{enumerate}[label={[}G5.\arabic*{]}]
 
     \item \label{goal:run1}Organizers can create a new run.
-    \item \label{goal:run2}Registered users can enroll to a run as participants.
-    \item \label{goal:run3}Registered users can visualize the list of planned runs.
-    \item \label{goal:run4}Registered users can visualize on a map the positions of the participants in a run.
-    \item\label{goal:run5}Registered users can visualize the list of live runs.
+    \item \label{goal:run2}Allow a User to enroll to a run as participant.
+    \item \label{goal:run3}Allow a User to visualize the list of scheduled runs.
+     \item\label{goal:run4}Allow a User to visualize the list of live runs.
+    \item \label{goal:run5}Allow a Users to visualize on a map the positions of the participants in a live run.
+   
     
 \end{enumerate}
 \end{goalList}
