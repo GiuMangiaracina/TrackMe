@@ -13,22 +13,20 @@ abstract sig RegisteredUser {
 sig User extends RegisteredUser {
 	cf: one CF,
 	data: some Record,
+	automated_sos: one Bool
 	/* SUPERFLUO
 	age: one Int,
 	gender: one Bool,
 	height: one Int, //unità di misura in cm
 	weight: one Int, //unità di misura ettogrammi
 	*/
-//	automated_sos: one Bool
 }
 
 sig ThirdParty extends RegisteredUser {
 	vat: one VAT,
-	// For simplicity we consider only accepted requests
-	positive_requests: some Request
+	// For simplicity we consider only positive requests
+	positive_requests: set Request
 }
-
-// pred makeRequest
 
 sig HealthStatus {
 	heartBeat: lone Int,
@@ -49,12 +47,13 @@ sig Record {
 	anon_id: one Int // there exists a 1-1 relation between User and id
 }
 
-/*
-sig Data {
-	location: lone Position,
-	health: lone HealthStatus
+sig Description {}
+
+sig EmergencyRecord extends Record {
+	user: one User,
+	description: one Description
+//mettere controllo sui valori salute
 }
-*/
 
 abstract sig Status {}
 	// only one of these can be true
@@ -62,46 +61,30 @@ one sig Accepted extends Status{}
 one sig Pending extends Status{}
 one sig Refused extends Status{}
 
- abstract sig Request {
-	/// ***SUPERFLUO*** request_timestamp: one Time,
+abstract sig Request {
 	sender: one ThirdParty,
-
-// Data request
-/*
-	localization: one Bool,
-	blood_pressure: one Bool,
-	hearth_rate: one Bool,
-	body_temperature: one Bool
-*/
 }
 
 sig UserRequest extends Request {
 	receiver: one User,
 	status: one Status,
 	
-// Obtained data: the record will be filled only if 
-// 1) the request is accepted
-// 2) the request contains the specific type of data
+	// A record is present only if the request is accepted by the user
 	obtained_data: lone Record
+} {
+	(status = Pending or status = Refused) implies no obtained_data
 }
 
 sig GroupRequest extends Request{
 	restrictions: Restrictions,
 	allowed: one Bool,
 
-// Obtained data: these will be filled only if 
-// 1) the request is allowed
-// 2) the request contains the specific type of data
+	// A record is present only if the request is allowed by the system
 	obtained_data: some Record
 }
 
-sig SubscriptionUserRequest extends UserRequest {
-	/// ***SUPERFLUO*** update_interval: one Int
-}
-
-sig SubscriptionGroupRequest extends GroupRequest {
-	/// ***SUPERFLUO*** update_interval: one Int
-}
+sig SubscriptionUserRequest extends UserRequest {}
+sig SubscriptionGroupRequest extends GroupRequest {}
 
 sig Restrictions {
 	location: lone Position,
@@ -109,20 +92,7 @@ sig Restrictions {
 	age_max: lone Int,
 	age_min: lone Int
 }
-/*
-sig EmergencyRecord extends Record {
-	user: one User,
-	description: one String,
-//mettere controllo sui valori salute
-//There exists a 1-1 relation between EmergencyRecord and NHS
-	closest_emergency_ward: one NHS
-}
 
-sig NHS {
-	location: one Position,
-	telephone_number: one String
-}
-*/
 sig Run {
 	organizer: one User,
 	path: one Path,
@@ -132,12 +102,13 @@ sig Run {
 	enrolled_users: set User,
 	participantsNumber: one Int,
 	started: one Bool,
+	ended: one Bool,
 	num_spectators: one Int
 }
 
 sig Path {
 	starting_point: one Position,
-	intermediate_points: some Position,
+	intermediate_points: set Position,
 	ending_point: one Position
 }
 
@@ -148,113 +119,144 @@ sig Path {
 
 
 
-// FACTS
-//lo username di ogni utente è unico
-fact UniqueUsername{
+// DATA4HELP
+
+// Registration data for the system are unique
+fact registrationDataUniqueness {
+	// Unique username
 	no disjoint u1, u2: RegisteredUser | u1.username = u2.username
+	// Unique fiscal code
+	no disjoint u1,u2: User | u1.cf = u2.cf
+	// Unique VAT
+	no disjoint t1,t2: ThirdParty | t1.vat = t2.vat
 }
 
-fact UniqueCf{
-	no disjoint u1,u2: User | u1.cf = u2.cf}
-
-// una richiesta può assumere uno solo tra i valori Accepted, Pending, Refused
+// Request status can have only one of these values: Accepted, Pending or Refused
 fact requestConsistency {
 	all s: Status | (s = Accepted && s != Pending && s != Refused) || 
 			(s != Accepted && s = Pending && s != Refused) ||
 			(s != Accepted && s != Pending && s = Refused) 
 }
 
+// If a request has no sender, it also has no receiver
+fact noSenderNoReceiver {
+	all r: Request | no r.sender implies no r.receiver
+}
+
+// Accepted/allowed requests are related to the third party that sent them
 fact thirdPartyRequests{
 	all t: ThirdParty, r: Request | r in t.positive_requests implies r.sender = t
 }
 
-// tutte le richieste che hanno le terze parti sono state accettate 
+// All the request related to a third party have been accepted/allowed 
 fact PositiveRequests{
 	all t: ThirdParty, r: UserRequest | r in t.positive_requests implies r.status = Accepted
 	all t: ThirdParty, r: GroupRequest | r in t.positive_requests implies r.allowed.isTrue
 }
 
+// A group request does not contain data if it is not allowed by the system
 fact noDataifGroupNotAllowed {
 	all g: GroupRequest | g.allowed.isFalse implies no g.obtained_data
 }
 
+// If accepted by the user, a user request contains one record of the user who accepted it
 fact obtainedDataAfterAcceptance {
 	all r: UserRequest | (r.status = Accepted implies one r.obtained_data) 
 					and r.obtained_data in r.receiver.data
 }
 
-// no istanze scollegate
-fact linked {
+// No unlinked instances
+fact noUnlinked {
 	all h: HealthStatus | some r: Record | h = r.health 
 	all p: Position | some r: Restrictions, rec: Record | p = r.location or p = rec.location
-	all r: Record | some u:User | r in u.data
+	//all r: Record | some u:User | r in u.data
 	all r: Restrictions | some g: GroupRequest | r = g.restrictions
 	//all g: GroupRequest | one t: ThirdParty | g.sender = t
 	all p: Path | some r: Run | p = r.path
+	all d: Description | some e: EmergencyRecord | d = e.description
 }
 
-// ID anonimo è unico
+
 fact uniqueAnonID {
+	// Records associated with different users have different anonymous ID
 	all u1, u2: User, r1, r2: Record | ((r1 in u1.data) and (r2 in u2.data) and u1 != u2) implies r1.anon_id != r2.anon_id
+	// Records associated with the same user have the same anonymous ID
 	all u: User, r1, r2: Record | ((r1 in u.data) and (r2 in u.data)) implies r1.anon_id = r2.anon_id
 }
 
-// I record di un utente hanno timestamp diversi tra loro
+// Records associated with the same user have different timestamps
 fact uniqueTimestampUser {
 	all u: User, r1, r2: Record | ((r1 in u.data) and (r2 in u.data) and (r1 != r2)) implies r1.timestamp != r2.timestamp
 }
 
-
-//tutti i dati che la terza parte richiede sono diversi da 0 e consistenti.devono corrispondere a quell'utente con quel cf
-//fact ContainsData{}
-//la ricerca di gruppo piò essere fatta solo se il numero di persone è maggiore di mille o di un valore #records
-
-/* EMERGENCY
-fact possibleValue{
-	all h: HealthStatus | h.heartBeat > 0 && h.bloodPressure > 0 && h.bodyTemperature > 0 && h.stepCounter >= 0
+/* 	NON FUNZIONANO I LIMITI PER GLI INT
+fact possibleValues{
+	all h: HealthStatus | h.heartBeat > 0 and h.bloodPressure > 0 and h.bodyTemperature > 0 and h.stepCounter >= 0
+	all p: Position | p.latitude >= -90 and p.latitude <= 90 and p.longitude >= -180 and p.longitude <= 180 
+	all rec: Record | rec.anon_id >= 0
+	all res: Restrictions | res.radius > 0 and res.radius < 5000 //km
+				and res.age_max >= 18 and res.age_max < 110 and res.age_min >= 18 and res.age_min < 110
+	all r: Run | r.max_participants > 0 and r.max_participants < 1000000
+				and  r.participantsNumber > 0 and r.participantsNumber < 100000
+				and  r.num_spectators > 0 and r.num_spectators < 100000
 }
 */
 
-// EMERGENCY: l'emergenza è attivata solo se i valori sono sotto una determinata soglia
+// TRACK4RUN
 
-//l'inizio di una run deve precedere sempre la fine di una run time
+// The end of a run must happen after its start
 fact TimeConstraints{
-	all r: Run | gt[r.end_time,r.start_time]
+	all r: Run | gt[r.end_time, r.start_time]
 }
 
-//per ogni corsa il numero dei partecipanti è definito cosi
+// Participant number definition
 fact PartecipantsNumber{
 	all r: Run| r.participantsNumber = #r.enrolled_users
 }
 
-//organizer and enrolled user should be different
+// Organizer and enrolled user must be different
 fact OrganizerNotEnrolled {
 	all r: Run | r.organizer not in r.enrolled_users
 }
 
-//enrolledusers<=max_partecipants
+// The number of users enrolled for the same run must not exceed the maximum number of participants set by the organizator
 fact MaxParticipants {
-	all r: Run |( r.participantsNumber >= 0 && r.participantsNumber <= r.max_participants)
+	all r: Run | ( r.participantsNumber >= 0 and r.participantsNumber <= r.max_participants)
 }
 
+// A run can not be finished if it is not started yet
+fact noFinishedIfNotSarted {
+	all r: Run | (r.ended.isTrue implies r.started.isTrue) and (r.started.isFalse implies r.ended.isFalse)
+}
+
+
+// A run has no spectators if it hasn't started yet or if it has already ended.
 fact numSpectators {
-	all r: Run | ((r.started.isTrue and r.num_spectators >= 0) or
-			((not r.started.isTrue) and r.num_spectators = 0))
+	all r: Run | (r.started.isFalse or r.ended.isTrue) implies r.num_spectators = 0
 }
 
+// In order for a run to start, there must be at least one user enrolled
 fact minPartecipants {
-	all r: Run | (r.started.isTrue implies r.participantsNumber >= 2)
+	all r: Run | (r.started.isTrue implies r.participantsNumber >= 1)
 }
 
-//mettere predicato per viewRun? in caso con postcondizione che il numero degli spectators è +1
-// live run can be seen only if the run is already started
-
-//tutti gli intermediate points diversi da starting and ending points
+// Intermediate points are different from the starting and ending points
 fact points {
-	all pa: Path | (pa.starting_point not in pa.intermediate_points &&
+	all pa: Path | (pa.starting_point not in pa.intermediate_points and
 			pa.ending_point not in pa.intermediate_points)
 }
 
+// AUTOMATED SOS
+
+// L'emergenza è attivata solo se i valori sono sotto una determinata soglia
+
+/*  	NON FUNZIONANO I LIMITI PER GLI INT
+fact emergencyIfNeeded {
+	all e: EmergencyRecord | e.health.heartBeat < 45 or e.health.heartBeat > 100 //bpm
+						or e.health.bloodPressure < 50 or e.health.bloodPressure > 160 //mmHg
+						or e.health.bodyTemperature < 33 or e.health.bodyTemperature > 40 //°C
+}
+*/
 
 
 
@@ -263,29 +265,40 @@ fact points {
 
 // PREDICATES
 
-pred addRecord[r: Record, u: User] {
+pred addRecord[r, r': Record, u: User] {
+	// preconditions
+	//r not in User.data
+	// postconditions
+	#u.data > 0 implies (r' in u.data and r.anon_id = r'.anon_id)
 	u.data = u.data + r
 }
 
-/*
 pred newRequest[t: ThirdParty, u: User, r: Request] {
-	t.
+	// postconditions
+	r.sender = t
+	r.receiver = u
+	r.status = Pending
 }
 
-*/
-pred acceptRequest[r: UserRequest] {
-	r.status = Pending implies r.status = Accepted
-	r in r.sender.positive_requests
+pred acceptRequest[r, r': UserRequest] {
+	// preconditions
+	r.status = Pending
+	// postconditions
+	r'.status = Accepted
+	r' in r'.sender.positive_requests
 }
 
-pred refuseRequest[r: UserRequest] {
-	r.status = Pending implies r.status = Refused
-	r not in r.sender.positive_requests
+pred refuseRequest[r, r': UserRequest] {
+	// preconditions
+	r.status = Pending
+	// postconditions
+	r'.status = Refused
+	r' not in r'.sender.positive_requests
 }
 
 
 pred isUserEnrolled [r: Run, u: User]{
-	u  in r.enrolled_users
+	u in r.enrolled_users
 }
 
 pred entriesAvailable[r: Run]{
@@ -306,8 +319,8 @@ pred enrollToRun[r, r': Run, u: User]{
 
 pred viewLiveRun[r, r': Run]{
 	// precondition
-	r.started = True
-	// postcondition
+	r.started.isTrue and r.ended.isFalse
+	// postcondition 					*** DUBBIO, la nuova r' dovrebbe avere anche tutti gli altri campi uguali a r? ***
 	r'.num_spectators = r.num_spectators + 1
 }
 
@@ -327,52 +340,38 @@ pred createRun[r: Run, o: User, p: Path, st, et: Time, max: Int]{
 pred show{
 //	#Record >= 1
 	#User >= 6
-	#UserRequest >= 2
-//	#User>0 and #User<5
-//	#User.data=2
-	#ThirdParty >= 1
+	#ThirdParty >= 2
+	3 >= #UserRequest and #UserRequest >= 2
+	3 >= #GroupRequest and #GroupRequest >= 2
 //	#ThirdParty.accepted_requests<5
-	#Run = 6
+	some u: User | #u.data=3
+	#HealthStatus >= 5
+	some r, r': Record |  r.health != r'.health
+	#EmergencyRecord = 2
+	#Run = 3
 }
 
-run acceptRequest for 2
-
-//run refuseRequest for 2
-
-run addRecord for 2
-
-run createRun for 10
-
-run viewLiveRun for 10
-
-run enrollToRun for 10 but exactly 8 User
 
 run show for 10
 
+// run addRecord for 4
+
+// run newRequest for 2
+
+// run acceptRequest for 2
+
+// run refuseRequest for 2
+
+// run addRecord for 2
+
+// run createRun for 10
+
+// run viewLiveRun for 10
+
+// run enrollToRun for 10 but exactly 8 User
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
