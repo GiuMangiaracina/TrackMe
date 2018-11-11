@@ -4,11 +4,11 @@
 Software Engineering 2 Project Repository
 
 # RASD
-Version 1.0.0 file can be found here
+Version 1.0.0 file can be found [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/RASD1.pdf)
 
 # DD
 
 # Contributors:
 Giulia Mangiaracina [905106]    
 Andrea Miotto [920287]  
-Ilaria Moschetto[915191
+Ilaria Moschetto[915191]
