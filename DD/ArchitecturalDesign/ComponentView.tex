@@ -24,7 +24,7 @@ The "Web Application" is for the Third parties, which  use the system connecting
     \item The \underline{Request Module} is responsible of
     the requests dispatching: it offers to the Third Party the interfaces to fill out the forms to perform a user or a group request, and  forward them to the database. Among its internal function, it sends a notification to the target user when he/she is the subject of an user request to notify the event, and it performs the security check in case of group request, allowing the group requests only if the matched collected data belong to at least to 1000 individuals.
     
-    \item The \underline{Data Module}  offers to the Third Parties all the functionalities to manage the performed requests, grouped by status (pending, accepted and refused), allows the consulting of the results, and calculates useful statistics on collected data. In case of subscription requests, it is its responsibility to update the Third party with the new data available with the frequency desired. It retrieves the selected data querying the database, that stores all the user records.
+    \item The \underline{Data Module}  offers to the Third Parties all the functionalities to manage the performed requests, grouped by status (pending, accepted and refused), allows the consulting of the results, and calculates useful statistics on collected data. In case of subscription requests, it is its responsibility to update the Third party with the new data available with the frequency desired. It retrieves the selected data querying the database, that stores all the user records. In case of group request, it anonymize the data.
     This module is connected to Maps API to allow the consulting of user location data on an interactive map.
     
     
@@ -48,7 +48,7 @@ The "Web Application" is for the Third parties, which  use the system connecting
     
     
     
-    \item The \underline{User History Module} sends the new user's health and location data as soon as they have been collected by the smartwatch device  to the system database, that stores the records.
+    \item The \underline{User Data Module} sends the new user's health and location data as soon as they have been collected by the smartwatch device  to the system database, that stores the records.
     
     It offers the interface to allow the User to visualize his/her History Data stored in the database, querying it with the time and location setting selected by the user, or performing a manual research. It is connected to the Maps API module to allow the visualization of user location data on an interactive map.
     
