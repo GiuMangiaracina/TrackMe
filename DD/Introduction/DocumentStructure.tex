@@ -1,22 +1,26 @@
 \section{Document Structure}
-This document is divided into 5 sections:
+This document is divided into 6 sections:
 \begin{itemize}
 \item Introduction:\\
-It includes a general overview on the System, the main goals of the application and all the informations useful to understand better the other sections of the document.
+A brief introduction of the design document
 
-\item Overall Description:\\
-It includes the models of the System: UML, shared phenomena and the state charts; the domain assumptions and constraints, the requirements associated to the goals of the previous section, and a reference to the users of the application.
 
-\item Specific Requirements: \\
-This is the main body of this paper. It contains: the external interface requirements, which includes the mockup of the application, both mobile and web; the functional requirements, with all the scenarios and the use cases of the main functionalities, that aim to describe better how the application will work; the performance requirements; all the design constraints; finally, the software System attributes.
+\item Architectural Design:\\
+Here are showed the main architectural design choices taken for the system. In the high level architecture, the system is described with a layered structure of 4 tiers;  in the component view is specified the role of each component within the system and their interaction; the physical architecture is explained in the deployment view, that illustrates the hardware and software architectural decisions; the database view shows the database structure of the system; in The run time view through sequence diagrams, the components stated previous interact and perform the main functionalities of the system.
 
-\item Formal Analysis using Alloy: \\
-This section contains the Alloy model of our System, with the code and some runs of the more relevant assertions and predicates, to verify its correctness.
+
+\item User Interface Design: \\
+This chapter explains the main user interfaces used in
+the client layer through mockup and UX diagram
+
+\item Requirements Traceability: \\
+In this section there is presented the mapping between the requirements stated in the RASD document and the components of the system
+
+\item Implementation, Integration and Test Plan: \\
+ this section describes the plan that will
+be used when each component will be develop and how it will be integrated with the others components.
 
 \item Effort Spent:\\
-A brief overview on the effort spent by each component of the group.
-
-
 
 
 \end{itemize}
