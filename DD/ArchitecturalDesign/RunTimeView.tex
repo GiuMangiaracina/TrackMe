@@ -1,12 +1,14 @@
 \section{Run-time View}
-These sequence diagrams shows how the different components interact through each other when the main features are used by various actors.
-
+These sequence diagrams show how the different components interact through each other when the main features are used by various actors.
+\subsection{Login}
+A Third Party browses the web page login of the TrackMe web application to authenticate itself and could be able to use the provided services. It inserts its credential (username and password). The Request Module checks if the inserted data match with an existent account, and if it is recognized, logged in it.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{DD/Pictures/login.png}
     \caption{Login sequence diagram}
 \end{figure}
-
+The Login process for a User of the mobile application is the same.
+\subcaption{User request }
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{DD/Pictures/userRequest.png}
@@ -36,7 +38,7 @@ These sequence diagrams shows how the different components interact through each
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.35]{DD/Pictures/createRunSeqDiagDD.png}
-    \caption{Create a new run by an Organizator}
+    \caption{Create a new run by an Organizer}
 \end{figure}
 
 \begin{figure}[H]
