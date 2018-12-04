@@ -48,8 +48,17 @@ The Third Party can see the list of user performed requests, divided for status:
     \caption{Visualization of data of a User that has already accepted the request}
 \end{figure}
 
-\subsection{Emergency }
-%emergency sequence diagram
+\subsection{Emergency}
+
+The smart device collects parameters that exceed predeterminate thresholds: this is a signal of an emergency.
+The User History Module receives the critical data, constructs a Record and, in case the User has the AutomatedSOS service enabled, forwards it to the AutomatedSOS Module to be analyzed in more detail.
+The AutomatedSOS Module performs checks in order to identify if the data correspond to an emergency. If no critical parameters have been found, the module simply send the record back to the User History Module, after updating it with the correct emergency status (in this case false). If an emergency is actually detected, the AutomatedSOS Module proceeds to create a brief textual diagnosis of the health status. From the textual diagnosis, an audio diagnosis is generated with the use of the Festival Speech Synthesis System, an open source tool that offers a full text to speech system. At this point everything is ready for the call to the NHS. (continues...)
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.16]{./Pictures/sequence-emergency.png}
+    \caption{Emergency management in AutomatedSOS}
+\end{figure}
 
 \subsection{Creation of a new run}
 An organizer creates a new run filling out the form with all the details: day of the run, start time, starting point, ending point, list of intermediate points and max number of participants. The Track4Run module defines the path that contains all the points selected by the organizer, through the map service, and performs the checks to validate the run. If it is allowed, the module adds to the list of planned run, and the application show a confirmation message to the organizer. Otherwise, the application show an error message.

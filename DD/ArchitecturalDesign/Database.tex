@@ -3,7 +3,7 @@
 In this section is described the design of the database that will be used for the \textit{TrackMe} system. 
 
 \begin{figure}[H]
-\includegraphics[scale=0.27,keepaspectratio]{./Pictures/ER-diagram.png}
+\includegraphics[scale=0.13,keepaspectratio]{./Pictures/ER-diagram.png}
 \centering
 \caption{Simplified ER diagram for the \textit{TrackMe} system}
 \end{figure}
@@ -16,7 +16,26 @@ The \textit{Track4Run} service is represented by the Run entity, which has the i
 The \textit{AutomatedSOS} service does not rely on a complex data structure so it’s not displayed in the simplified ER diagram. Nevertheless, two attributes are present in the \textit{User} and \textit{Record} entities: the \textit{SosEnabled} attribute is a flag that indicates if the service is enabled or not; the \textit{isEmergency} attribute indicates if the record contains critical health parameters.
 
 \begin{figure}[H]
-\includegraphics[scale=0.34,keepaspectratio]{./Pictures/ER-tables.png}
+\includegraphics[scale=0.17,keepaspectratio]{./Pictures/ER-tables.png}
 \centering
 \caption{Tables and relative attributes of the \textit{TrackMe} database}
 \end{figure}
+
+Figure 2.7 represents a more complete representation of the \textit{TrackMe} database. Some of the attributes included in the diagram require some further explanation:
+
+\begin{itemize}
+
+\item[--] the \textit{Status} attribute of the \textit{User Request} table can take one of the three values: Accepted, Refused or Pending. As soon as the third party makes a request in the system, its \textit{Status} is set to Pending. When the user replies to the request it cain either become Accepted or Refused, depending on the user choice.
+The \textit{Status} attribute is not present in the \textit{Group Request} because this type of request does not require user interaction to be effective. In place of the \textit{Status} attribute, the \textit{isAllowed} attribute is used: it is a boolean that is defined automatically by the system after checking if the minimum number of 1000 interested users is reached or not.
+
+\item[--] the selection of the type of data to be accessed with a request is represented in the \textit{Selected Data} table. It contains 6 boolean values that indicate if the sender actually request access to the specific type of data.
+Given that a selection can be done in $2^6 = 64$ different ways, a unique integer identifier \textit{Selection ID} that ranges from 1 to 64 is put in place.
+
+\item[--] the attributes in the \textit{Record} table represent all the types of data supported by the system. Users’ smart devices may not be equipped with the sensor needed to acquire certain type of data (for example, smart sensors for respiratory rate monitoring are not easily available in the market), so instances of this entity do not have to contain all of them. To signal the absence of data, a special value is stored. 
+
+\item[--] the subInterval attribute in the \textit{User Request} and \textit{Group Request} tables indicates the time between two data updates in a subscription request. It is therefore used only if the \textit{isSubscription} attribute contains the value True and it can take 4 different values: hour, day, week or month. 
+
+\end{itemize}
+
+
+

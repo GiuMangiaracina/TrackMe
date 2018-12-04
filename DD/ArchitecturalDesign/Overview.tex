@@ -18,21 +18,24 @@ TrackMe is a system that stores user data and makes them available for third par
 
 The picture above describes the client-server architecture of the system. The mobile and web client are different in terms of thickness: in order to maintain high offline reliability, the mobile client is provided with data management capabilities (it can, for example, manage the collected data that have not been uploaded yet), while the web client only shows the data that is available to be accessed by the third party. 
 
-\vskip\bigskipamount
+%\vskip\bigskipamount
+
+\vspace{5mm}
+
+\begin{figure}[H]
+\includegraphics[scale=0.43,keepaspectratio]{./Pictures/high-level-basic.jpeg}
+\centering
+\caption{High-level architecture of the \textit{TrackMe} system}
+\end{figure}
+
+\vspace{5mm}
 
 The high-level architecture of the TrackMe system is divided into four tiers:
 \begin{enumerate}
 \item the \textit{Presentation tier} enables the interaction with end users, includes a web application for third party access and a mobile application, utilized by individual users
 \item the \textit{Web tier} consists of an Apache web server that manages RESTful HTTPS requests between clients and the application server
-\item the \textit{Business Logic tier} includes the application server, where the main tasks, such as the request management, the run creation and the emergency call, will be effectively executed. The application server is set in a demilitarized zone, delimited by firewalls that block undesired connections between the server and the web.
-\item the \textit{Data tier} manages the storage of the data needed for the functioning of the TrackMe system. It connects to the application server through a firewall in order to add a security layer in the case where the application server had been compromised.
+\item the \textit{Business Logic tier} includes the application server, where the main tasks, such as the request management, the run creation and the emergency call, will be effectively executed. 
+\item the \textit{Data tier} manages the storage of the data needed for the functioning of the TrackMe system. It includes also the external services that will be required for the system to function properly.
 \end{enumerate}
 
-\vspace{6mm}
-
-\begin{figure}[H]
-\includegraphics[scale=0.35,keepaspectratio]{./Pictures/high-level.png}
-\centering
-\end{figure}
-
-\vspace{6mm}
+\newpage
