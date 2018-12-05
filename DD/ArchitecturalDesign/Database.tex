@@ -8,8 +8,7 @@ In this section is described the design of the database that will be used for th
 \caption{Simplified ER diagram for the \textit{TrackMe} system}
 \end{figure}
 
-The picture above shows the main entities of the database. There is a \textit{User} entity, used to store the personal information of individual users that is requested at sign up. Every user has many records associated to itself, each of them containing location and health data. This information is put in the \textit{Record} entity. The \textit{Third Party} entity contains meaningful data about the company that signed up to the \textit{TrackMe} system. Third parties can make requests to the system in order to get access to user data, so the \textit{Third Party} entity is related with the \textit{User Request} and the \textit{Group Request} entities. Both these entities contain information about the request, such as its status and the specific type of data to be accessed, but there is an important difference between the two regarding the anonymity of data. While a user request is sent to an individual user directly, a group request has a higher scope, and the data that 
-is accessed after this type of request must be completely anonymous. The sender of the request must not get access to the personal data of the users that have generated the records. To enforce this, the \textit{Group Request} entity is not related with \textit{User}, but instead directly with \textit{Record}. This solution is permitted by the use of anonymous identifiers, present in the \textit{Record} entity, that have a 1 to 1 relation with the users of the system.
+The picture above shows the main entities of the database. There is a \textit{User} entity, used to store the personal information of individual Users that is requested at sign up. Every User has many records associated to itself, each of them containing location and health data. This information is put in the \textit{Record} entity. The \textit{Third Party} entity contains meaningful data about the company that signed up to the \textit{TrackMe} system. Third Parties can make requests to the System in order to get access to User's data, so the \textit{Third Party} entity is related with the \textit{User Request} and the \textit{Group Request} entities. Both these entities contain information about the request, such as its status and the specific type of data to be accessed, but there is an important difference between the two regarding the anonymity of data. While a User request is sent to an individual User directly, a group request has a higher scope, and the data that is accessed after this type of request must be completely anonymous. The sender of the request must not get access to the personal data of the Users that have generated the records. To enforce this, the \textit{Group Request} entity is not related with \textit{User}, but instead directly with \textit{Record}. This solution is permitted by the use of anonymous identifiers, present in the \textit{Record} entity, that have a 1 to 1 relation with the Users of the system.
 
 The \textit{Track4Run} service is represented by the Run entity, which has the information about the location, time and participants.
 
@@ -21,7 +20,7 @@ The \textit{AutomatedSOS} service does not rely on a complex data structure so i
 \caption{Tables and relative attributes of the \textit{TrackMe} database}
 \end{figure}
 
-Figure 2.7 represents a more complete representation of the \textit{TrackMe} database. Some of the attributes included in the diagram require some further explanation:
+Figure 2.9 represents a more complete representation of the \textit{TrackMe} database. Some of the attributes included in the diagram require some further explanation:
 
 \begin{itemize}
 

@@ -1,10 +1,10 @@
 \section{Overview: High‐level components and their interaction}
 
-TrackMe is a system that stores user data and makes them available for third parties requests. It also offers the in-house services Track4Run and AutomatedSOS to the end users. In order to provide these services, the system needs two different client applications: 
+TrackMe is a System that stores User's data and makes them available for Third Parties requests. It also offers the in-house services Track4Run and AutomatedSOS to the end Users. In order to provide these services, the System needs two different client applications: 
 
 \begin{itemize}[leftmargin=*]
-        \item{a mobile client that sends new user data to the server, designed specifically for individual users}
-        \item{a web client, accessible to verified third parties only, that gives access to the specifically requested data}
+        \item{a Mobile client that sends new User data to the server, designed specifically for individual users;}
+        \item{a Web client, accessible to verified Third Parties only, that gives access to the specifically requested data.}
 \end{itemize}
 
 \begin{figure}[H]
@@ -16,7 +16,7 @@ TrackMe is a system that stores user data and makes them available for third par
 
 \newpage
 
-The picture above describes the client-server architecture of the system. The mobile and web client are different in terms of thickness: in order to maintain high offline reliability, the mobile client is provided with data management capabilities (it can, for example, manage the collected data that have not been uploaded yet), while the web client only shows the data that is available to be accessed by the third party. 
+The picture above describes the client-server architecture of the System. The Mobile and Web clients are different in terms of thickness: in order to maintain high offline reliability, the Mobile client is provided with data management capabilities (it can, for example, manage the collected data that have not been uploaded yet), while the Web client only shows the data that is available to be accessed by the Third Party. 
 
 %\vskip\bigskipamount
 
@@ -32,10 +32,10 @@ The picture above describes the client-server architecture of the system. The mo
 
 The high-level architecture of the TrackMe system is divided into four tiers:
 \begin{enumerate}
-\item the \textit{Presentation tier} enables the interaction with end users, includes a web application for third party access and a mobile application, utilized by individual users
-\item the \textit{Web tier} consists of an Apache web server that manages RESTful HTTPS requests between clients and the application server
+\item the \textit{Presentation tier} enables the interaction with end Users, includes a Web application for Third Party access and a Mobile application, utilized by individual Users.
+\item the \textit{Web tier} consists of an Apache web server that manages RESTful HTTPS requests between clients and the application server.
 \item the \textit{Business Logic tier} includes the application server, where the main tasks, such as the request management, the run creation and the emergency call, will be effectively executed. 
-\item the \textit{Data tier} manages the storage of the data needed for the functioning of the TrackMe system. It includes also the external services that will be required for the system to function properly.
+\item the \textit{Data tier} manages the storage of the data needed for the functioning of the TrackMe system. It includes also the external services that will be required for the System to function properly.
 \end{enumerate}
 
 \newpage
