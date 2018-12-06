@@ -5,9 +5,11 @@ This section is devoted to explain in details the physical architecture of the \
 %\vskip\bigskipamount
 
 \begin{figure}[H]
+
 \includegraphics[scale=0.32,keepaspectratio]{./Pictures/high-level-firewall.png}
 \centering
 \caption{High-level architecture}
+
 \end{figure}
 
 First of all, two different clients are put in place: a lightweight Web application that will be accessible from any modern Web Browser and a full Mobile application with support for both iOS and Android, the two most popular mobile operating systems. The Mobile application will manage User's data through \textit{Realm}, an ODBMS which provides support for both iOS and Android. In order to have a highly maintainable system, the communication between the clients and the server will adhere to the \textit{REST} protocol, which is built on top of \textit{HTTPS}. 
@@ -16,7 +18,9 @@ The \textit{Application Server} is the central element of the system architectur
 Finally, the \textit{Application Server} needs to interact with the external map service, which is of paramount importance for the \textit{TrackMe} system because it provides important utility for the final users. The choice is \textit{OpenStreetMap} for reliability and privacy.
 
 \begin{figure}[H]
+
 \includegraphics[scale=0.14,keepaspectratio]{./Pictures/deployment.png}
 \centering
 \caption{Deployment of the \textit{TrackMe} system}
+
 \end{figure}

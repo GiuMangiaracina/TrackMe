@@ -1,21 +1,26 @@
 \section{Component View}
 In the figure below is represented the high level component architecture of the System. It is composed by two main modules that correspond to the two platforms used by two different kind of customers of our services: 
-The "Web Application" is for the Third Parties, that use the System connecting to the site through a Web Browser, and interact with the "Third Party Mobile Services" subsystem. The "Mobile Application" is for normal Users, which use the services of the system with an IOS or Android device through the TrackMe mobile Application, and interact with the "User Mobile Service" subsystem.
+The "Web Application" is for the Third Parties, that use the System connecting to the site through a Web Browser, and interact with the "Third Party Mobile Services" subsystem. The "Mobile Application" is for normal Users, which use the services of the system with an IOS or Android device through the TrackMe Mobile Application, and interact with the "User Mobile Service" subsystem.
 \newline
 \newline
 \newline
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.25]{./Pictures/component.png}
     \caption{Component view of \emph{TrackMe} System}
+    
 \end{figure}
 
 \subsection{Component view of the Third Party Web Services}
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.2]{./Pictures/thirdPartyServicesDiagram.png}
     \caption{Third Party Web Service component}
+    
+\end{figure}
     
 \begin{itemize}
 \item  The \underline{Login Module} manage the operations of authentication, allowing the Third Party to be recognized and then to use the services of the System. It interacts with the database to check the credentials and retrieve the account informations.
@@ -26,14 +31,14 @@ The "Web Application" is for the Third Parties, that use the System connecting t
     
 \end{itemize} 
    
-    
-\end{figure}
 \subsection{Component view of the User Mobile Service}
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.2]{./Pictures/userServicesDiagram.png}
     \caption{User Mobile Services component}
+    
 \end{figure}
 
 \begin{itemize}

@@ -2,14 +2,13 @@
 
 \begin{itemize}
     \item Layered Architecture:\\ \\
-    As described in the High-level overview section, the architecture of the system is composed of 4 tiers: the presentation level, the web level, the business logic level and the data level. Client executables for iOS and Android constitute the Presentation level, which will interface with the logic of the system through an Apache web server. The database server and the external map service form the Data level, which will communicate with the server application through a firewall. A layered structure improves reuse and maintainability of the system.
-    \item Publish - Subscribe: \\ \\
-    The subscription requests follow the event based paradigm (often called publish- subscribe): with this modality, a third party subscribe itself to the data of a user or a set of user (group), and is notified with the new data each interval time specified, if they are available.
+    As described in the High-level overview section, the architecture of the System is composed of four tiers: the Presentation level, the Web level, the Business Logic level and the Data level. Client executables for iOS and Android constitute the Presentation level, which will interface with the logic of the System through an Apache Web server. The database server and the external map service form the Data level, which will communicate with the server application through a firewall. A layered structure improves reuse and maintainability of the System.
+    \item Publish-Subscribe: \\ \\
+    The subscription requests follow the event based paradigm (often called publish-subscribe): with this modality, a Third Party subscribes itself to the data of a User or a set of Users (group) and is notified with the new data each interval time specified, if they are available.
     \item Observer: \\ \\
-    AutomatedSOS service can be seen as an Observer to the user health status (Observables): it continuosly monitorizes them, and activate emergency functionalities when an anomaly is detected.
-    \item Client - Server: \\ \\
-    The main functionalities of the system are based on the well-known client- server structure: there are two kind of clients (web users and mobile application users) that send requests to a unique server, that elaborate them passing through the application logic tier, and reply to the client.
-
-\item Facade: \\ \\
-All the complexity of the System is hidden by providing to the user simple interfaces. This is evident in the AutomatedSOS Service, where all the tasks related to the management of an emergency are responsibility of the appropriate module, and the user does not need to interact directly with them.
+    AutomatedSOS service can be seen as an Observer to the User health status (Observables): it continuosly monitorizes them, and activate emergency functionalities when an anomaly is detected.
+    \item Client-Server: \\ \\
+    The main functionalities of the System are based on the well-known client-server structure: there are two kind of clients (Web Users and Mobile application Users) that send requests to a unique server, that elaborate them passing through the Application logic tier and reply to the clients.
+    \item Facade: \\ \\
+    All the complexity of the System is hidden by providing to the User simple interfaces. This is evident in the AutomatedSOS Service, where all the tasks related to the management of an emergency are responsibility of the appropriate module, and the User does not need to interact directly with them.
 \end{itemize}

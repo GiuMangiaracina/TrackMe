@@ -1,51 +1,63 @@
 \section{Run-time View}
 These sequence diagrams show how the different components interact through each other when the main features are used by various actors.
+
 \subsection{Login}
-A Third Party goes on to the login web page of the TrackMe web application for authentication in order to be able to use the provided services. It inserts its credential (username and password). The Request Module checks if the inserted data match with an existent account, and if the third party is recognized, it is logged in the system.
+A Third Party goes to the login Web page of the TrackMe Web application for authentication in order to be able to use the provided services. It inserts its credential (username and password). The Request Module checks if the inserted data match with an existent account, and if the Third Party is recognized, it is logged in the System.
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.15]{./Pictures/login.png}
     \caption{Login sequence diagram}
+    
 \end{figure}
 
-The Login process for a User of the mobile application is the same.\\ \\
-From now on we consider that the users are logged in the system.
+The Login process for a User of the Mobile application is the same.\\ \\
+From now on we consider that the Users are logged in the System.
 
 \subsection{Dispatch of a User subscription request}
-A Third Party selects the new request button, with subscription mode, in the individuals section; the third party fills out the form with the fiscal code of the target individual, the data that it want to receive (encoded as booleans), and an interval time corresponding to the desired update frequency. The Request Module creates a new request with the selected data and stores it in the database. After that, the module notifies the target user that there is a new request to manage in his/her incoming request section.
+A Third Party selects the new request button in the individuals section with subscription mode; the Third Party fills out the form with the fiscal code of the target individual, the data that it want to receive (encoded as booleans) and an interval time corresponding to the desired update frequency. The Request Module creates a new request with the selected data and stores it in the database. After that, the module notifies the target User that there is a new request to manage in his/her incoming request section.
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.16]{./Pictures/userRequestV.png}
     \caption{User request by a Third Party}
+    
 \end{figure}
 
 \subsection{Manage of incoming User Requests}
-A user can manage incoming requests clicking on the appropriate section. the Manage request module asks to the database the list of requests that the user has received, and shows it. The user can selects a specific request, and the application shows all the details:
-the name of the third party which performed the request, the list of data in which it is interested in, the update interval time it selected. At this point the user can decide to accept or deny the request; the manage request module dispatch the response to the database, updating the status of the request. Finally, it notifies the request sender, to inform that the request is not more pending. 
+A User can manage incoming requests clicking on the appropriate section. The Manage Request Module asks to the database the list of requests that the User has received and shows it. The User can selects a specific request and the application shows all the details:
+the name of the Third Party which performed the request, the list of data in which it is interested in, the update interval time it selected. At this point the User can decide to accept or deny the request; the Manage Request Module dispatch the response to the database, updating the status of the request. Finally, it notifies the request sender, to inform that the request is no more pending. 
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.14]{./Pictures/acceptRequest.png}
     \caption{User acceptance of a request made by a Third Party}
+    
 \end{figure}
 
-\subsection{Dispatch of a group subscription request }
-A Third Party selects the new request button, with subscription mode, in the group section; it fills out the form with the kind of data it desire to receive, the characteristics on which will be perform the group research (age range, gender, location, weight and height range) and the update interval time. The request module retrieves the information from the database, creating a group with data that matche the parameters selected, and checks if the number of individuals in this group is greater than 1000. If it is, the module anonymizes the data covering the identities with the anonymous id associated to each individual, and sends the data to the Third Party.
+\subsection{Dispatch of a group subscription request}
+A Third Party selects the new request button with subscription mode, in the group section; it fills out the form with the kind of data it desire to receive, the characteristics on which will be perform the group research (age range, gender, location, weight and height range) and the update interval time. The Request Module retrieves the informations from the database, creating a group with data that match the parameters selected, and checks if the number of individuals in this group is greater than 1000. If it is, the module anonymizes the data covering the identities with the anonymous id associated to each individual and sends the data to the Third Party.
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.2]{./Pictures/groupRequestSeqDiagDDV.png}
     \caption{Group request by a Third Party}
+    
 \end{figure}
 
-\subsection{Visualization of User data  }
-The Third Party can see the list of user performed requests, divided for status: accepted, refused, pending. The Data Module retrieves them from the database, and shows the list of requests, taking only those of the selected status. Assuming that the Third party is in the accepted requests section, now it can select the target request and the application shows the related records of the request.
+\subsection{Visualization of User data}
+The Third Party can see the list of performed User requests, divided by status: Accepted, Refused, Pending. The Data Module retrieves them from the database and shows the list of requests, taking only those of the selected status. Assuming that the Third Party is in the Accepted Requests section, now it can select the target request and the application shows the related records of the request.
+
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.17]{./Pictures/showDataResultV.png}
     \caption{Visualization of data of a User that has already accepted the request}
+
 \end{figure}
 
 \subsection{Emergency}
@@ -55,25 +67,31 @@ The User History Module receives the critical data, constructs a Record and, in 
 The AutomatedSOS Module performs checks in order to identify if the data correspond to an emergency. If no critical parameters have been found, the module simply send the record back to the User History Module, after updating it with the correct emergency status (in this case false). If an emergency is actually detected, the AutomatedSOS Module proceeds to create a brief textual diagnosis of the health status. From the textual diagnosis, an audio diagnosis is generated with the use of the Festival Speech Synthesis System, an open source tool that offers a full text to speech system. At this point everything is ready for the call to the NHS. (continues...)
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.16]{./Pictures/sequence-emergency.png}
     \caption{Emergency management in AutomatedSOS}
+    
 \end{figure}
 
 \subsection{Creation of a new run}
-An organizer creates a new run filling out the form with all the details: day of the run, start time, starting point, ending point, list of intermediate points and max number of participants. The Track4Run module defines the path that contains all the points selected by the organizer, through the map service, and performs the checks to validate the run. If it is allowed, the module adds to the list of planned run, and the application show a confirmation message to the organizer. Otherwise, the application show an error message.
+An Organizer creates a new run filling out the form with all the details: day of the run, start time, starting point, ending point, list of intermediate points and maximum number of participants. The Track4Run Module defines the path that contains all the points selected by the Organizer through the map service and performs the checks to validate the run. If it is allowed, the module adds it to the list of scheduled run and the application shows a confirmation message to the Organizer. Otherwise, the application shows an error message.
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.16]{./Pictures/createRunSeqDiagDD.png}
     \caption{Create a new run by an Organizer}
+    
 \end{figure}
 
 \subsection{Enroll to a run}
-An user can views the list of planned run, performing a custom research on date, location and max number of participants; the Track4Run Module retrieves the runs from the database. The user can select a specific run and consults the detail of the event. At this point he/she can decide to enroll to the run: the module checks if there are yet available entries, and the enrollment is allowed adds the user to the list of participant to that run.
+Users can view the list of scheduled runs performing a custom research on date, location and maximum number of participants and the Track4Run Module retrieves the runs from the database. Users can select a specific run and consult the detail of the event. At this point he/she can decide to enroll to a run: the module checks if there are already available entries and, in case of a positive response, the enrollment is allowed and the User is added to the list of participant of that run.
 
 \begin{figure}[H]
+
     \centering
     \includegraphics[scale=0.18]{./Pictures/enrollSeqDiagDD.png}
     \caption{Enrollment to a scheduled run by a User}
+    
 \end{figure}
