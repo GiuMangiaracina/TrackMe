@@ -4,7 +4,7 @@
 Software Engineering 2 Project Repository
 
 # RASD
-Version 1.0.0 file can be found [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/RASD1.pdf)
+The latest version can be found [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/RASD1.2.pdf)
 
 # DD
 
