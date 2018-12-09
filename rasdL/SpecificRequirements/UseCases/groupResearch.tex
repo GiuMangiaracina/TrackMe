@@ -1,6 +1,6 @@
 \newpage
-\subsection{Group Research}
-The Third Party can make a request for anonymized data specifing the constraints of the group, the data that wants to retrieve and optionally the subscription mode with the interval time of updates. The anonymized group data are shown to the Third Party only if the privacy constraints are respected (i.e. there are at least 1000 users that match the specified constraints).
+\subsection{Group Request}
+The Third Party can make a request for anonymized data by specifying the constraints of the group, the data it wants to retrieve and, optionally, the subscription mode with the interval time of updates. The anonymized group data are shown to the Third Party only if the privacy constraints are respected (there must be a number of at least 1000 users that match the specified constraints).
 
 \begin{table}[H]
 	\centering
@@ -21,15 +21,15 @@ The Third Party can make a request for anonymized data specifing the constraints
     \textbf{\large{Events Flow}}		& \begin{enumerate}[leftmargin=0.5cm]
                                 \item The \emph{Third Party} selects the Group section.
                                 \item The \emph{Third Party} selects the "New Request" button.
-                                \item The \emph{Third Party} specifies the group constraints (such as city or location, the age interval, gender, height and weight, that can be chosen optionally).
-                                 \item The \emph{Third Party} selects the data that wants to retrieve and, if it has chosen the subscription mode, should also specify the interval time for the updates.
+                                \item The \emph{Third Party} specifies the group constraints (such as city or location, the age interval, gender, height and weight).
+                                 \item The \emph{Third Party} selects the data it wants to retrieve and, if it has chosen the subscription mode, specifies the interval time for the updates.
                                  \item Finally, the \emph{Third Party} sends the request, selecting the "Send" button.
                                  \item If the privacy constraints are respected, the System sends the requested anonymous data to the \emph{Third Party}.
                                            
                                           \end{enumerate}
     										\\
     \hline
-    \textbf{\large{Exit Condition}} 	& The Third Party can visualize the                                         anonymized data relative to the given                                       specifications. \\
+    \textbf{\large{Exit Condition}} 	& The Third Party can visualize the                                         anonymized data related to the specifications given. \\
     
     \hline
     \textbf{\large{Exception}} 			& \begin{enumerate}[leftmargin=0.5cm]                                           \item The \emph{Third Party}                                            specified an inexistent city or                                             location.
@@ -47,6 +47,6 @@ The Third Party can make a request for anonymized data specifing the constraints
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{./Pictures/groupResearchSeqDiag.png}
-    \caption{Sequence diagram for anonymized group research performed by a Third Party}
+    \caption{Sequence diagram for anonymized group request performed by a Third Party}
     
 \end{figure}

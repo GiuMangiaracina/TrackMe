@@ -3,11 +3,11 @@ Domain Assumptions:
 \begin{enumerate}[label={[}D.\arabic*{]}]
 
 \item \label{d:1}
-The user owns a smartwatch or similiar device, connected to the user’s smartphone.
+The user owns a smart device connected to his/her smartphone.
 \item\label{d:2}
-The smartwatch collects the data through its sensors.
+The smart device collects the data through its sensors.
 \item\label{d:3}
-The device has regular Internet connection.
+The device has regular internet connection.
 \item\label{d:4}
 The device has a working GPS system.
 \item\label{d:5}
@@ -29,21 +29,23 @@ After the start of an emergency, an ambulance will be dispatched at the user’s
 \item\label{d:13}
 For every urgent call, details about the emergency are correctly encoded.
 \item\label{d:14}
-The threshold value for detect and emergency state will be provided by a trusted medical authority.
-\item\label{d:15}
-The database of emergency world number is updated and reliable.
+The threshold value for emergency detection is provided by a trusted medical authority.
 \item\label{d:16}
 The map service provides only feasible paths accessible by foot.
 \end{enumerate}
-\newpage
+
+\vspace{10mm}
+
 \textbf{Constraints:}
 
 \begin{enumerate}
-    \item\label{c:1}	A group request can be executed only if there are at least 1000 people that match the requested characteristics.
+    \item\label{c:1} A group request can be executed only if there are at least 1000 users that match the requested characteristics.
     \item\label{c:2}
-    From the time the parameters are below a fixed threshold, the communication with NHS must be established within 5 seconds.
+    From the time the parameters exceed a fixed threshold, the communication with NHS must be established within 5 seconds.
     \item\label{c:3}
     The subscription to a run is closed if the maximum number of participants is reached.
+    \item\label{c:4}
+    The mobile application must be able to store the data collected by the smart device, so that new data can be sent with a frequency that is lower than the one by which new data are generated. This ensures no loss of data in case of missing internet connection, as well as a lower battery consumption. 
 \end{enumerate}
 
 
