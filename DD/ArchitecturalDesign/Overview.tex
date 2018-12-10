@@ -1,6 +1,6 @@
 \section{Overview: High‐level components and their interaction}
 
-TrackMe is a System that stores User's data and makes them available for Third Parties requests. It also offers the in-house services Track4Run and AutomatedSOS to the end Users. In order to provide these services, the System needs two different client applications: 
+TrackMe is a System that stores User data and makes them available for Third Parties through the requests mechanism. It also offers the in-house services Track4Run and AutomatedSOS to the end Users. In order to provide these services, the System needs two different client applications: 
 
 \begin{itemize}[leftmargin=*]
         \item{a Mobile client that sends new User data to the server, designed specifically for individual users;}
@@ -8,17 +8,19 @@ TrackMe is a System that stores User's data and makes them available for Third P
 \end{itemize}
 
 \begin{figure}[H]
-
-\includegraphics[scale=0.3,keepaspectratio]{./Pictures/arch-design.png}
-\centering
-%\captionsetup{labelformat=empty}
-\caption{Overview of the \textit{TrackMe} system}
-
+	\includegraphics[scale=0.3,keepaspectratio]{./Pictures/arch-design.png}
+	\centering
+	\caption{Overview of the \textit{TrackMe} system}
 \end{figure}
 
 \newpage
 
-The picture above describes the client-server architecture of the System. The Mobile and Web clients are different in terms of thickness: in order to maintain high offline reliability, the Mobile client is provided with data management capabilities (it can, for example, manage the collected data that have not been uploaded yet), while the Web client only shows the data that is available to be accessed by the Third Party. 
+The picture above describes the client-server architecture of the System. The Mobile and Web clients are different in terms of thickness: ithe Mobile client is provided with data management capabilities in order to 
+\begin{itemize}
+	\item[--] manage the collected data that have not been uploaded yet (high offline reliability)
+	\item[--] store a bigger set of data and send it to the server once, instead of having multiple forwardings (low battery consumption) 
+\end{itemize}
+, while the Web client only shows the data that is available to be accessed by the Third Party. 
 
 %\vskip\bigskipamount
 

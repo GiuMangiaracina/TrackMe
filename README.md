@@ -4,10 +4,10 @@
 Software Engineering 2 Project Repository
 
 # RASD
-The latest version can be found [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/RASD1.2.pdf)
+The latest version of the Requirements Analysis and Specifications Document can be found [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/RASD1.2.pdf)
 
 # DD
-The Design Document can be foud [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/DD%20v1.0.pdf)
+The Design Document can be found [here](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/DeliveryFolder/DD1.0.pdf)
 # Contributors:
 Giulia Mangiaracina [905106]    
 Andrea Miotto [920287]  

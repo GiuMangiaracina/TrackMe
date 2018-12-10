@@ -1,39 +1,40 @@
 \section{Definitions, Acronyms, Abbreviations}
-In this part of the DD Document there are some definitions, acronyms and abbreviations that will be used among the following chapters.
+This section contains definitions, acronyms and abbreviations that will be used among the following chapters.
 
 \subsection{Definitions}
+
 \begin{itemize}
 
-\item \textbf{User:} When referring to the \emph{User}, we refer to a logged-in User which is not a Third Party. The software is usable only by a recognized User. 
+\item \textbf{Visitor:} when referring to the \emph{Visitor}, we refer to an actor that has not registered to the TrackMe system yet.
 
-\item \textbf{Visitor:} When referring to the \emph{Visitor}, we refer to a person not yet registered to the TrackMe system.
+\item \textbf{Registered User:} a user registered to the TrackMe System. All actors must be registered to the system in order to perform any action on it.
 
-\item \textbf{Registered User:} A User registered to the TrackMe System. To use the System and performs any action, all actors must be registered. 
+\item\textbf{Logged-in User:} a registered user who has logged into the TrackMe System
 
-\item\textbf{Logged-in User:} Is a registered User who is logged in the TrackMe System.
+\item \textbf{User:} when referring to the \emph{User}, we refer to a logged-in user which is not a Third party. 
 
-\item\textbf{Organizer:} Is a logged-in User who uses the Track4Run system, and decides to create a new run.
+\item\textbf{Organizer:} referring to a run of the Track4Run service, the logged-in user that has created it
 
-\item \textbf{System:} when referring to the \emph{System}, this document refers to the entire system infrastructure.
+\item \textbf{System / TrackMe System:} the entire system infrastructure, encompassing the Data4Help, AutomatedSOS and Track4Run services.
 
-\item \textbf{Client:} We refer to a normal logged-in User of the application, not a Third Party.
+\item\textbf{Health data:} data collected by user's smart device which refer to his/her health status
 
-\item\textbf{Normal User:} is a Client.
+\item\textbf{Request:} performed by a Third Party, a request asks the permission to get access to some specific user data.
+There are 4 types of requests: 
+\begin{itemize}
+\item \textit{One-shot User requests} concern the latest available data of a single user
+\item \textit{Subscription User requests} provide the Third Party with regular updates of the user data
+\item \textit{One-shot Group requests} concern the latest available data of a specific set of users
+\item \textit{Subscription Group request} provide the Third Party with regular updates of the group data
+\end{itemize}
+In a request, the Third Party can specify the type of data it wants to receive, with a choice among different health data (heart rate, blood pressure, step counter, etc.). User requests must be accepted by the user to be performed, while group requests are automatically active if the selected set of individuals is greater than 1000 users.
 
-\item\textbf{TrackMe:} is the name of our System, that includes the three main services: Data4Help, AutomatedSOS and Track4Run.
+\item\textbf{Run:} sports event organized with the Track4Run System. Scheduled runs are runs that have been created in the system and will take place in the future, while Live runs are those which are taking place at the moment and can be watched live. 
 
-\item\textbf{App:} We refer to either TrackMe Mobile application or the Web version.
+\item\textbf{Path:} route that the participants of a run will follow during the event. It is selected by the run organizer during the event creation (start point, intermediate points and final point)
 
-\item\textbf{Health data:} With health data we refer to the health data collected by User's device, among those available or requested: heart rate, blood pressure, body temperature, step counter, respiratory rate, localization.
+\end{itemize}
 
-\item\textbf{Request:} A request is performed by a Third Party and concerns one or more Users. There are 4 types of requests: One-shot User request (concerning the latest available data of a specific User selected inserting his/her fiscal code ), subscription User request (it requires an interval time to specify: the Third Party will receive the updates how often it has requested), one-shot group request (the Third Party selects the research preferences and the requested data that match them are anonymized) and subscription group request (the same of one-shot group request, but it requires to specify the update interval time). In all kind of requests the Third Party can specify which data it want to receive, among all the available health data (heart rate, blood pressure, body temperature, step counter, respiratory rate, localization). The User requests must be accepted by the User to be performed, while the group requests are performed only if concern a group of individuals greater than 1000 for a security factor.
-
-\item\textbf{Run:} A Run is a sports competition organized by and Organizer through the Track4Run System. The runs are divided in: scheduled runs, that have been planned and will take place in the future, and live runs, that are taking place in this moment and can be followed live. The scheduled and live runs are shown in the scheduled run list and live run list respectively.
-
-\item\textbf{Path :} Every run has a path, i.e. the route that links the points selected by the run Organizer during the event creation: initial point, the intermediate points and the final point. 
-
-	\end{itemize}
-	
 \subsection{Acronyms}
 
 \begin{itemize}
@@ -51,7 +52,6 @@ In this part of the DD Document there are some definitions, acronyms and abbrevi
 \end{itemize}
 
 \subsection{Abbreviations}
-These abbreviations will be used both in this document and in the following documents.
 
 \begin{itemize}
 	\item {[}G k{]}: The k-th Goal
