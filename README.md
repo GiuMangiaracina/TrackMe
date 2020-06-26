@@ -1,6 +1,7 @@
 
 ![alt text](https://github.com/GiuMangiaracina/MangiaracinaMiottoMoschetto/blob/master/Icon2.png)
 # TrackMe 
+Project for the Software Engineering 2 course at Politecnico di Milano.
 This is a Software Engineering project for a hypothetical application, _TrackMe_.
 
 It consists in the presentation of two documents:
@@ -21,4 +22,3 @@ Giulia Mangiaracina [905106]
 Andrea Miotto [920287]  
 Ilaria Moschetto[915191]
 
-Project for the Software Engineering 2 course at Politecnico di Milano
